@@ -34,7 +34,7 @@ Returns a promise that gets server timestamp.
 Request url to get server time. Default is `/`.
 
 #### opts
-- `ignoreCache` - If `true`, Ignore cache and force a request to server. Default is `false`.
+- `ignoreCache` - If `true`, ignore cache and force a request to server. Default is `false`.
 
 ## License
 MIT
