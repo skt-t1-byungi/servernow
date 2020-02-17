@@ -1,0 +1,40 @@
+{
+    "name": "servernow",
+    "version": "0.0.1",
+    "description": "Get server timestamp.",
+    "repository": "https://github.com/skt-t1-byungi/servernow",
+    "author": "byungi <tiniwz@gmail.com>",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "time",
+        "server",
+        "now",
+        "date"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "test": "jest",
+        "clean": "rm -rf dist",
+        "build": "npm run clean && tsc",
+        "prepublishOnly": "npm run test && npm run build"
+    },
+    "devDependencies": {
+        "@types/jest": "^25.1.2",
+        "eslint": "^6.8.0",
+        "eslint-config-byungi": "^0.8.1",
+        "jest": "^25.1.0",
+        "jest-fetch-mock": "^3.0.1",
+        "ts-jest": "^25.2.0",
+        "typescript": "^3.7.5"
+    },
+    "eslintConfig": {
+        "extends": "byungi/typescript"
+    },
+    "eslintIgnore": [
+        "dist"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["ES2015", "DOM"],
+        "declaration": true,
+        "strict": true,
+        "outDir": "dist"
+    },
+    "files": [
+        "index.ts"
+    ]
+}
