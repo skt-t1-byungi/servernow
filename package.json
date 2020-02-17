@@ -1,7 +1,7 @@
 {
     "name": "servernow",
     "version": "0.0.1",
-    "description": "Get server timestamp.",
+    "description": "Get server timestamp",
     "repository": "https://github.com/skt-t1-byungi/servernow",
     "author": "byungi <tiniwz@gmail.com>",
     "main": "dist/index.js",
