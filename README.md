@@ -2,7 +2,6 @@
 Get server timestamp
 
 [![npm](https://flat.badgen.net/npm/v/servernow)](https://www.npmjs.com/package/servernow)
-[![bundle size](https://flat.badgen.net/bundlephobia/minzip/servernow)](https://bundlephobia.com/result?p=servernow)
 [![license](https://flat.badgen.net/github/license/skt-t1-byungi/servernow)](https://github.com/skt-t1-byungi/clearall/blob/master/LICENSE)
 
 
