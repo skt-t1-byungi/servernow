@@ -13,7 +13,7 @@ test('servernow', async () => {
 
     expect(sessionStorage.getItem('servernow:/')).toBeNull()
 
-    fetchMock.mockResponse('', { headers: { Date: new Date(SERVER_TIME).toUTCString() } })
+    fetchMock.mockResponse('/', { headers: { Date: new Date(SERVER_TIME).toUTCString() } })
 
     expectRange(await servernow(), 1000)
     expectRange(Number(sessionStorage.getItem('servernow:/')), 1000)
