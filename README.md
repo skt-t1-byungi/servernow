@@ -14,7 +14,7 @@ npm i servernow
 ### browser esm
 ```html
 <script type="module">
-    import servernow from 'https://unpkg.com/servernow/dist/index.mordern.js'
+    import servernow from 'https://unpkg.com/servernow/dist/index.modern.js'
 
     /* ... */
 </script>
