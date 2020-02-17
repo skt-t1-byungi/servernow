@@ -1,5 +1,5 @@
 # servernow
-Get server timestamp
+Get server timestamp in browser.
 
 [![npm](https://flat.badgen.net/npm/v/servernow)](https://www.npmjs.com/package/servernow)
 [![license](https://flat.badgen.net/github/license/skt-t1-byungi/servernow)](https://github.com/skt-t1-byungi/clearall/blob/master/LICENSE)
