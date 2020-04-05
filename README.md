@@ -7,7 +7,7 @@ Get server timestamp in browser.
 
 ## Install
 ### npm
-```sh
+```
 npm i servernow
 ```
 ### browser esm
@@ -27,14 +27,18 @@ servernow().then(t => console.log(t)) // => This is your server timestamp.
 ```
 
 ## API
-### servernow(url?, opts?)
+### servernow(url?, options?)
 Returns a promise that gets server timestamp.
 
 #### url
 Request url to get server time. Default is `/`.
 
-#### opts
-- `ignoreCache` - If `true`, ignore cache and force a request to server. Default is `false`.
+#### options
+##### ignoreCache
+If `true`, ignore cache and force a request to server. Default is `false`.
+
+##### ignoreRange
+If the time difference between server and browser is smaller than this number, just use the browser time. Default is `1000`ms
 
 ## License
 MIT

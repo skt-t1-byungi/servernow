@@ -2,19 +2,16 @@ import servernow from '.'
 
 import 'jest-fetch-mock'
 
-const expectRange = (n: number, toBe: number, range: number) => {
-    expect(n).toBeGreaterThan(toBe - range)
-    expect(n).toBeLessThan(toBe + range)
+const expectInRange = (n: number, expected: number, range: number) => {
+    expect(n).toBeGreaterThan(expected - range)
+    expect(n).toBeLessThan(expected + range)
 }
 
 test('servernow', async () => {
-    const DIFF = 100000
-    const SERVER_TIME = (~~(Date.now() / 1000) * 1000) + DIFF
+    const fakeSeverTime = (~~(Date.now() / 1000) * 1000)
+    fetchMock.mockResponse('/', { headers: { Date: new Date(fakeSeverTime).toUTCString() } })
 
     expect(sessionStorage.getItem('servernow:/')).toBeNull()
-
-    fetchMock.mockResponse('/', { headers: { Date: new Date(SERVER_TIME).toUTCString() } })
-
-    expectRange(await servernow(), SERVER_TIME, 1000)
-    expectRange(Number(sessionStorage.getItem('servernow:/')), DIFF, 1000)
+    expectInRange(await servernow('/', { ignoreRange: 0 }), fakeSeverTime, 10)
+    expect(sessionStorage.getItem('servernow:/')).not.toBeNull()
 })
