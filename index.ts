@@ -1,13 +1,13 @@
 export default servernow
 
-export function servernow (url = '/', { ignoreCache = false, ignoreRange = 1000 } = {}) {
+export function servernow ({ url = '/', nocache = false, margin = 1000 } = {}) {
     const KEY = `servernow:${url}`
 
-    if (!ignoreCache) {
+    if (!nocache) {
         const str = sessionStorage.getItem(KEY)
         if (str) {
             const diff = Number(str)
-            return Promise.resolve(Date.now() + (Math.abs(diff) > ignoreRange ? diff : 0))
+            return Promise.resolve(Date.now() + (Math.abs(diff) > margin ? diff : 0))
         }
     }
 
