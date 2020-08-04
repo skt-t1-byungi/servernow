@@ -1,14 +1,15 @@
 export default servernow
 
-export function servernow ({ url = '/', cache = true, margin = 1000 } = {}) {
+export function servernow ({ url = '/', cache = true, margin = 1000, offset: returnOffset = false } = {}) {
     const KEY = `servernow:${url}`
+
+    function process (offset: number) {
+        return (offset > margin ? offset : 0) + (returnOffset ? 0 : Date.now())
+    }
 
     if (cache) {
         const str = sessionStorage.getItem(KEY)
-        if (str) {
-            const diff = Number(str)
-            return Promise.resolve(Date.now() + (Math.abs(diff) > margin ? diff : 0))
-        }
+        if (str) return Promise.resolve(process(Number(str)))
     }
 
     const start = Date.now()
@@ -19,8 +20,10 @@ export function servernow ({ url = '/', cache = true, margin = 1000 } = {}) {
 
         const end = Date.now()
         const ret = Date.parse(str) + ~~((end - start) / 2)
-        sessionStorage.setItem(KEY, String(ret - end))
+        const offset = ret - end
 
-        return ret
+        sessionStorage.setItem(KEY, String(offset))
+
+        return process(offset)
     })
 }
