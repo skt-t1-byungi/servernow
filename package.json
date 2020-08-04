@@ -24,13 +24,13 @@
         "prepublishOnly": "npm run test && npm run build"
     },
     "devDependencies": {
-        "@types/jest": "^25.2.1",
-        "eslint": "^6.8.0",
-        "eslint-config-byungi": "^0.10.4",
-        "jest": "^25.2.7",
+        "@types/jest": "^26.0.8",
+        "eslint": "^7.6.0",
+        "eslint-config-byungi": "^0.12.4",
+        "jest": "^26.2.2",
         "jest-fetch-mock": "^3.0.3",
         "microbundle": "^0.12.0-next.8",
-        "ts-jest": "^25.3.1",
+        "ts-jest": "^26.1.4",
         "typescript": "^3.8.3"
     },
     "eslintConfig": {
