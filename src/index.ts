@@ -4,7 +4,7 @@ export function servernow ({ url = '/', cache = true, margin = 1000, offset: ret
     const KEY = `servernow:${url}`
 
     function process (offset: number) {
-        return (offset > margin ? offset : 0) + (returnOffset ? 0 : Date.now())
+        return (Math.abs(offset) > margin ? offset : 0) + (returnOffset ? 0 : Date.now())
     }
 
     if (cache) {
