@@ -8,10 +8,10 @@ const expectInRange = (n: number, expected: number, range: number) => {
 }
 
 test('servernow', async () => {
-    const fakeSeverTime = (~~(Date.now() / 1000) * 1000)
+    const fakeSeverTime = ~~(Date.now() / 1000) * 1000
     fetchMock.mockResponse('/', { headers: { Date: new Date(fakeSeverTime).toUTCString() } })
 
     expect(sessionStorage.getItem('servernow:/')).toBeNull()
-    expectInRange(await servernow('/', { ignoreRange: 0 }), fakeSeverTime, 10)
+    expectInRange(await servernow({ url: '/', margin: 0 }), fakeSeverTime, 10)
     expect(sessionStorage.getItem('servernow:/')).not.toBeNull()
 })
