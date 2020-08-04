@@ -1,9 +1,9 @@
 export default servernow
 
-export function servernow ({ url = '/', nocache = false, margin = 1000 } = {}) {
+export function servernow ({ url = '/', cache = true, margin = 1000 } = {}) {
     const KEY = `servernow:${url}`
 
-    if (!nocache) {
+    if (cache) {
         const str = sessionStorage.getItem(KEY)
         if (str) {
             const diff = Number(str)
