@@ -1,10 +1,10 @@
 export default servernow
 
-export function servernow ({ url = '/', cache = true, margin = 1000, offset: returnOffset = false } = {}) {
+export function servernow ({ url = '/', cache = true, margin = 1000, offsetOnly = false } = {}) {
     const KEY = `servernow:${url}`
 
     function process (offset: number) {
-        return (Math.abs(offset) > margin ? offset : 0) + (returnOffset ? 0 : Date.now())
+        return (Math.abs(offset) > margin ? offset : 0) + (offsetOnly ? 0 : Date.now())
     }
 
     if (cache) {
