@@ -3,8 +3,8 @@ export default servernow
 export function servernow ({ url = '/', cache = true, margin = 1000, offsetOnly = false } = {}) {
     const KEY = `servernow:${url}`
 
-    function process (offset: number) {
-        return (Math.abs(offset) > margin ? offset : 0) + (offsetOnly ? 0 : Date.now())
+    function process (n: number) {
+        return (Math.abs(n) > margin ? n : 0) + (offsetOnly ? 0 : Date.now())
     }
 
     if (cache) {
@@ -19,8 +19,7 @@ export function servernow ({ url = '/', cache = true, margin = 1000, offsetOnly 
         if (!str) throw new Error(`There is no "Date" header in "${url}".`)
 
         const end = Date.now()
-        const ret = Date.parse(str) + ~~((end - start) / 2)
-        const offset = ret - end
+        const offset = Date.parse(str) + ~~((end - start) / 2) - end
 
         sessionStorage.setItem(KEY, String(offset))
 
