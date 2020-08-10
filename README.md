@@ -32,7 +32,7 @@ Returns a promise that gets server timestamp.
 
 #### options
 #### url
-Request url to get server time. Default is `/`.
+Request url to get server time. Default is `location.href`.
 
 ##### cache
 If `false`, ignore cache and force a request to server. Default is `true`.

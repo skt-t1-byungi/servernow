@@ -1,6 +1,6 @@
 export default servernow
 
-export function servernow ({ url = '/', cache = true, margin = 1000, offsetOnly = false } = {}) {
+export function servernow ({ url = location.href, cache = true, margin = 1000, offsetOnly = false } = {}) {
     const KEY = `servernow:${url}`
 
     function process (n: number) {
